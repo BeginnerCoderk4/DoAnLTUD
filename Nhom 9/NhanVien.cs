@@ -1,4 +1,5 @@
 ﻿using BLL;
+using DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -66,11 +67,32 @@ namespace Nhom_9
         private void NhanVien_Load(object sender, EventArgs e)
         {
             dgvDataNV.DataSource = nhanVien.getNhanVien();
+            cboGioiTinh.Items.Add("Nam");
+            cboGioiTinh.Items.Add("Nu");
         }
 
         private void btnThemNV_Click(object sender, EventArgs e)
         {
-            
+            string maNV = txtMaNV.Text;
+            string hoten = txtTenNV.Text;
+            string gioiTinh = cboGioiTinh.Text;
+            string ngaySinh = txtNgaySinh.Text;
+            string diaChi = txtDiaChi.Text;
+            string chucVu = txtChucVu.Text;
+            clsNhanVien cNhanVien = new clsNhanVien(maNV, hoten, gioiTinh, ngaySinh, diaChi, chucVu);
+            try
+            {
+                if (nhanVien.themNhanVien(cNhanVien) >= 0)
+                {
+                    MessageBox.Show("Thêm thành công");
+                    dgvDataNV.DataSource = nhanVien.getNhanVien();
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Thêm không thành công");
+                throw;
+            }
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
