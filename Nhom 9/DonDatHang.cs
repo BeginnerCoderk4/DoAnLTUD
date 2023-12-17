@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BLL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,11 @@ namespace Nhom_9
         public DonDatHang()
         {
             InitializeComponent();
+        }
+        BLL_DonDatHang donDatHang = new BLL_DonDatHang();
+        private void DonDatHang_Load(object sender, EventArgs e)
+        {
+            
         }
     }
 }

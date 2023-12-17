@@ -14,8 +14,9 @@ namespace DAL
         public DataTable LayDSNhanVien(string NameTable)
         {
             DataTable dtNhanVien = new DataTable();
-            string sSQL = "Select * From " + NameTable;
+            string sSQL = "sp_Get_Table";
             SqlCommand cmdSQL = new SqlCommand(sSQL, conn);
+            cmdSQL.Parameters.AddWithValue("@Table_Name", NameTable);
             SqlDataAdapter daNhanVien = new SqlDataAdapter(cmdSQL);
             daNhanVien.Fill(dtNhanVien);
             return dtNhanVien;
@@ -27,6 +28,60 @@ namespace DAL
             Cmdsql.CommandType = CommandType.StoredProcedure;
             Cmdsql.Parameters.AddWithValue("@sMaNV", cNhanVien.MaNhanVien);
             Cmdsql.Parameters.AddWithValue("@sTenNV",cNhanVien.TenNhanVien);
+            Cmdsql.Parameters.AddWithValue("@sGioiTinh", cNhanVien.GioiTinh);
+            Cmdsql.Parameters.AddWithValue("@sNgaySinh", cNhanVien.NgaySinh);
+            Cmdsql.Parameters.AddWithValue("@sDiaChi", cNhanVien.DiaChi);
+            Cmdsql.Parameters.AddWithValue("@sChucVu", cNhanVien.ChucVu);
+            int result = 0;
+            try
+            {
+                if (Cmdsql.ExecuteNonQuery() >= 0)
+                {
+                    result = 1;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                result = 0;
+            }
+
+            return result;
+        }
+        public int suaNhanVien(clsNhanVien cNhanVien)
+        {
+            string sp_insert = "updateNhanVien";
+            SqlCommand Cmdsql = new SqlCommand(sp_insert, conn);
+            Cmdsql.CommandType = CommandType.StoredProcedure;
+            Cmdsql.Parameters.AddWithValue("@sMaNV", cNhanVien.MaNhanVien);
+            Cmdsql.Parameters.AddWithValue("@sTenNV", cNhanVien.TenNhanVien);
+            Cmdsql.Parameters.AddWithValue("@sGioiTinh", cNhanVien.GioiTinh);
+            Cmdsql.Parameters.AddWithValue("@sNgaySinh", cNhanVien.NgaySinh);
+            Cmdsql.Parameters.AddWithValue("@sDiaChi", cNhanVien.DiaChi);
+            Cmdsql.Parameters.AddWithValue("@sChucVu", cNhanVien.ChucVu);
+            int result = 0;
+            try
+            {
+                if (Cmdsql.ExecuteNonQuery() >= 0)
+                {
+                    result = 1;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                result = 0;
+            }
+
+            return result;
+        }
+        public int xoaNhanVien(clsNhanVien cNhanVien)
+        {
+            string sp_insert = "deleteNhanVien";
+            SqlCommand Cmdsql = new SqlCommand(sp_insert, conn);
+            Cmdsql.CommandType = CommandType.StoredProcedure;
+            Cmdsql.Parameters.AddWithValue("@sMaNV", cNhanVien.MaNhanVien);
+            Cmdsql.Parameters.AddWithValue("@sTenNV", cNhanVien.TenNhanVien);
             Cmdsql.Parameters.AddWithValue("@sGioiTinh", cNhanVien.GioiTinh);
             Cmdsql.Parameters.AddWithValue("@sNgaySinh", cNhanVien.NgaySinh);
             Cmdsql.Parameters.AddWithValue("@sDiaChi", cNhanVien.DiaChi);

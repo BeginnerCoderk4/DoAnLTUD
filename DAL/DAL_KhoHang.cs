@@ -14,8 +14,9 @@ namespace DAL
         public DataTable LayDSKhoHang(string NameTable)
         {
             DataTable dtKhoHang = new DataTable();
-            string sSQL = "Select * From " + NameTable;
+            string sSQL = "sp_Get_Table";
             SqlCommand cmdSQL = new SqlCommand(sSQL, conn);
+            cmdSQL.Parameters.AddWithValue("@Table_Name", NameTable);
             SqlDataAdapter daKhoHang = new SqlDataAdapter(cmdSQL);
             daKhoHang.Fill(dtKhoHang);
             return dtKhoHang;

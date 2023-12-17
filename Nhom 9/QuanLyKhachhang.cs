@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BLL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,31 @@ namespace Nhom_9
         public QuanLyKhachhang()
         {
             InitializeComponent();
+        }
+        BLL_KhachHang khachHang = new BLL_KhachHang();
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void QuanLyKhachhang_Load(object sender, EventArgs e)
+        {
+            dgvKhachHang.DataSource = khachHang.getKhachHang();
         }
     }
 }

@@ -14,8 +14,9 @@ namespace DAL
         public DataTable LayDSXuatHang(string NameTable)
         {
             DataTable dtXuatHang = new DataTable();
-            string sSQL = "Select * From " + NameTable;
+            string sSQL = "sp_Get_Table";
             SqlCommand cmdSQL = new SqlCommand(sSQL, conn);
+            cmdSQL.Parameters.AddWithValue("@Table_Name", NameTable);
             SqlDataAdapter daXuatHang = new SqlDataAdapter(cmdSQL);
             daXuatHang.Fill(dtXuatHang);
             return dtXuatHang;

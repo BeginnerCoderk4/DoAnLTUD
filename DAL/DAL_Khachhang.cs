@@ -11,11 +11,12 @@ namespace DAL
 {
     public class DAL_Khachhang:connectDB
     {
-        public DataTable LayDKhachhang(string NameTable)
+        public DataTable LayDSKhachhang(string NameTable)
         {
             DataTable dtKhachhang = new DataTable();
-            string sSQL = "Select * From " + NameTable;
+            string sSQL = "sp_Get_Table";
             SqlCommand cmdSQL = new SqlCommand(sSQL, conn);
+            cmdSQL.Parameters.AddWithValue("@Table_Name", NameTable);
             SqlDataAdapter daKhachhang = new SqlDataAdapter(cmdSQL);
             daKhachhang.Fill(dtKhachhang);
             return dtKhachhang;

@@ -14,8 +14,9 @@ namespace DAL
         public DataTable LayDSHoaDon(string NameTable)
         {
             DataTable dtHoaDon = new DataTable();
-            string sSQL = "Select * From " + NameTable;
+            string sSQL = "sp_Get_Table";
             SqlCommand cmdSQL = new SqlCommand(sSQL, conn);
+            cmdSQL.Parameters.AddWithValue("@Table_Name", NameTable);
             SqlDataAdapter daHoaDon = new SqlDataAdapter(cmdSQL);
             daHoaDon.Fill(dtHoaDon);
             return dtHoaDon;

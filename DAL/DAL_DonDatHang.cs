@@ -14,8 +14,9 @@ namespace DAL
         public DataTable LayDSDonHang(string NameTable)
         {
             DataTable dtDonDatHang = new DataTable();
-            string sSQL = "Select * From " + NameTable;
+            string sSQL = "sp_Get_Table";
             SqlCommand cmdSQL = new SqlCommand(sSQL, conn);
+            cmdSQL.Parameters.AddWithValue("@Table_Name", NameTable);
             SqlDataAdapter daNhanVien = new SqlDataAdapter(cmdSQL);
             daNhanVien.Fill(dtDonDatHang);
             return dtDonDatHang;

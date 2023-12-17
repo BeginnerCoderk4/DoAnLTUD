@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BLL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,7 +17,10 @@ namespace Nhom_9
         {
             InitializeComponent();
         }
+        BLL_XuatHang xuatHang = new BLL_XuatHang();
+        private void XuatKho_Load(object sender, EventArgs e)
+        {
 
-      
+        }
     }
 }

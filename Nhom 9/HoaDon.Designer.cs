@@ -43,7 +43,7 @@
             this.txtMaNhanVien = new System.Windows.Forms.TextBox();
             this.mtbNgayInHD = new System.Windows.Forms.MaskedTextBox();
             this.txtMaHoaDon = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvHoaDon = new System.Windows.Forms.DataGridView();
             this.label9 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -52,7 +52,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHoaDon)).BeginInit();
             this.SuspendLayout();
             // 
             // btnLamMoi
@@ -190,15 +190,15 @@
             this.txtMaHoaDon.Size = new System.Drawing.Size(154, 20);
             this.txtMaHoaDon.TabIndex = 51;
             // 
-            // dataGridView1
+            // dgvHoaDon
             // 
-            this.dataGridView1.ColumnHeadersHeight = 29;
-            this.dataGridView1.Location = new System.Drawing.Point(81, 196);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(638, 164);
-            this.dataGridView1.TabIndex = 42;
+            this.dgvHoaDon.ColumnHeadersHeight = 29;
+            this.dgvHoaDon.Location = new System.Drawing.Point(81, 196);
+            this.dgvHoaDon.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvHoaDon.Name = "dgvHoaDon";
+            this.dgvHoaDon.RowHeadersWidth = 51;
+            this.dgvHoaDon.Size = new System.Drawing.Size(638, 164);
+            this.dgvHoaDon.TabIndex = 42;
             // 
             // label9
             // 
@@ -301,7 +301,7 @@
             this.Controls.Add(this.txtMaNhanVien);
             this.Controls.Add(this.mtbNgayInHD);
             this.Controls.Add(this.txtMaHoaDon);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvHoaDon);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -312,7 +312,8 @@
             this.Controls.Add(this.label1);
             this.Name = "HoaDon";
             this.Text = "HoaDon";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.HoaDon_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHoaDon)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -335,7 +336,7 @@
         private System.Windows.Forms.TextBox txtMaNhanVien;
         private System.Windows.Forms.MaskedTextBox mtbNgayInHD;
         private System.Windows.Forms.TextBox txtMaHoaDon;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvHoaDon;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
