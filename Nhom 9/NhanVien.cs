@@ -97,7 +97,26 @@ namespace Nhom_9
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-
+            string maNV = txtMaNV.Text;
+            string hoten = txtTenNV.Text;
+            string gioiTinh = cboGioiTinh.Text;
+            string ngaySinh = txtNgaySinh.Text;
+            string diaChi = txtDiaChi.Text;
+            string chucVu = txtChucVu.Text;
+            clsNhanVien cNhanVien = new clsNhanVien(maNV, hoten, gioiTinh, ngaySinh, diaChi, chucVu);
+            try
+            {
+                if (nhanVien.xoaNhanVien(cNhanVien) >= 0)
+                {
+                    MessageBox.Show("xóa thành công");
+                    dgvDataNV.DataSource = nhanVien.getNhanVien();
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("xóa không thành công");
+                throw;
+            }
         }
 
         private void btnSua_Click(object sender, EventArgs e)
