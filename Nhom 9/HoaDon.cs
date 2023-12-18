@@ -36,10 +36,19 @@ namespace Nhom_9
             string sodienthoai = mtbSDT.Text;
             string tongthanhtien = txtTongThanhTien.Text;
             clsHoaDon HoaDon = new clsHoaDon(mahoadon, ngayinhoadon, manhanvien, tennhanvien, makhachhang, tenkhachhang, diachi, tongthanhtien, sodienthoai);
-            if (hoaDon.themHoaDon(HoaDon) >= 0)
+
+            try
             {
-                MessageBox.Show("tạo thành công");
-                dgvHoaDon.DataSource = hoaDon.getHoaDon();
+                if (hoaDon.themHoaDon(HoaDon) >= 0)
+                {
+                    MessageBox.Show("tạo thành công");
+                    dgvHoaDon.DataSource = hoaDon.getHoaDon();
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("tạo thất bại ");
+                throw;
             }
         }
 
@@ -60,11 +69,21 @@ namespace Nhom_9
         {
             string mahoadon = txtMaHoaDon.Text;
             clsHoaDon HoaDon = new clsHoaDon(mahoadon);
-            if (hoaDon.xoaHoaDon(HoaDon) >= 0)
+            try
             {
-                MessageBox.Show("hủy thành công");
-                dgvHoaDon.DataSource = hoaDon.getHoaDon();
+                if (hoaDon.xoaHoaDon(HoaDon) >= 0)
+                {
+                    MessageBox.Show("hủy thành công");
+                    dgvHoaDon.DataSource = hoaDon.getHoaDon();
+                }
             }
+            catch (Exception)
+            {
+                MessageBox.Show("hủy thất bại ");
+                throw;
+            }
+
+
         }
 
         private void btnQuayLai_Click(object sender, EventArgs e)

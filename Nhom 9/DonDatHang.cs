@@ -36,10 +36,19 @@ namespace Nhom_9
             string diadiem = txtDiaDiem.Text;
             string thanhtien = txtThanhTien.Text;
             clsDonHang DonHang = new clsDonHang(madonhang, makhachhang, tenkhachhang, ngaytao, sodienthoai, diachi, ngaygiaohang, diadiem, thanhtien);
-            if (donDatHang.themDonDatHang(DonHang) >= 0)
+
+            try
             {
-                MessageBox.Show("thêm thành công");
-                dataGridView1.DataSource = donDatHang.getDonDatHang();
+                if (donDatHang.themDonDatHang(DonHang) >= 0)
+                {
+                    MessageBox.Show("thêm thành công");
+                    dataGridView1.DataSource = donDatHang.getDonDatHang();
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("thêm thất bại");
+                throw;
             }
         }
 
