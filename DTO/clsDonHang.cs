@@ -19,7 +19,7 @@ namespace DTO
         private String _ThanhTien;
         private String _MaNhanVien;
 
-        public clsDonHang(string maDonHang, string maKhachHang, string tenKhachhang, string diaChi, string ngayTao, string sDT, string ngayGiaoHang, string diaDiem, string thanhTien, string maNhanVien)
+        public clsDonHang(string maDonHang, string maKhachHang, string tenKhachhang, string diaChi, string ngayTao, string sDT, string ngayGiaoHang, string diaDiem, string thanhTien)
         {
             this._MaDonHang = maDonHang;
             this._MaKhachHang = maKhachHang;
@@ -30,7 +30,6 @@ namespace DTO
             this._NgayGiaoHang = ngayGiaoHang;
             this._DiaDiem = diaDiem;
             this._ThanhTien = thanhTien;
-            this._MaNhanVien = maNhanVien;
         }
 
         public string MaDonHang { get => _MaDonHang; set => _MaDonHang = value; }

@@ -32,6 +32,11 @@ namespace DTO
             
         }
 
+        public clsHoaDon(string maHoaDon)
+        {
+            this._MaHoaDon = maHoaDon;
+        }
+
         public string MaHoaDon { get => _MaHoaDon; set => _MaHoaDon = value; }
         public string NgayInHoaDon { get => _NgayInHoaDon; set => _NgayInHoaDon = value; }
         public string MaNhanVien { get => _MaNhanVien; set => _MaNhanVien = value; }
