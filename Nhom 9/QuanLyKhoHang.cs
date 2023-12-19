@@ -21,5 +21,10 @@ namespace Nhom_9
         {
 
         }
+
+        private void QuanLyKhoHang_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

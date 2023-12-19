@@ -17,6 +17,9 @@ namespace Nhom_9
             InitializeComponent();
         }
 
-      
+        private void ThongKeHangHoa_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
